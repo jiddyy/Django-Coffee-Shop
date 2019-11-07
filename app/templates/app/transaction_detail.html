@@ -1,15 +1,25 @@
-{% extends 'base.html' %}
-{% block content %}
-<h1>Transaction #{{ transaction.id }}</h1>
-
-<dl>
-    <dt>Item Name</dt>
-    <dd>{{ transaction.item.name }}</dd>
-    <dt>Time</dt>
-    <dd>{{ transaction.time }}</dd>
-    <dt>Pre Tax</dt>
-    <dd>{{ transaction.pre_tax }}</dd>
-    <dt>Tax</dt>
-    <dd>{{ transaction.tax }}</dd>
-</dl>
-{% endblock content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
+<head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'app/receipt.css' %}"
+  />
+</head>
+<body>
+  <h1 id="store-name">Fresh Brew</h1>
+  <p id="store-place">FB in WV</p>
+  <p id="transaction-num">Transaction #{{ transaction.id }}</p>
+  <p id="transaction-time">{{ transaction.time }}</p>
+  <dl id="receipt-list">
+    <!-- <dt>Item Name</dt> -->
+    <dd class="receipt-item">{{ transaction.item.name }}</dd>
+    <!-- <dt>Time</dt> -->
+    <!-- <dd class="receipt-item">{{ transaction.time }}</dd> -->
+    <!-- <dt>Pre Tax</dt> -->
+    <dd class="receipt-item">{{ transaction.pre_tax }}</dd>
+    <!-- <dt>Tax</dt> -->
+    <dd class="receipt-item">{{ transaction.tax }}</dd>
+  </dl>
+  {% endblock content %}
+</body>

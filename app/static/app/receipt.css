@@ -1,0 +1,29 @@
+* {
+  background-color: gray;
+  text-align: center;
+}
+body {
+  border: 2px solid black;
+  margin-left: 30rem;
+  margin-right: 30rem;
+  background-color: white;
+}
+h1 {
+  background-color: white;
+}
+p {
+  background-color: white;
+}
+.transaction-num {
+  border-bottom: 1px dashed black;
+}
+.transaction-time {
+  border-bottom: 1px dashed black;
+}
+#receipt-list {
+  padding-right: 2.5rem;
+  background-color: white;
+}
+.receipt-item {
+  background-color: white;
+}

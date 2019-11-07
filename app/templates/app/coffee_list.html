@@ -1,14 +1,21 @@
-{% extends 'base.html' %}
-{% block content %}
-<ul>
-{% for coffee in coffees %}
-<li>{{ coffee.name }} - ${{ coffee.price|floatformat:2 }}
+{% extends 'base.html' %} {% load static %} {% block content %}
+<head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="{% static 'app/coffee_list.css' %}"
+  />
+</head>
+<ul id="coffee-list">
+  {% for coffee in coffees %}
+  <li class="coffee-item">
+    {{ coffee.name }} - ${{ coffee.price }}
 
     <form action="{% url 'buy_coffee' coffee.id %}" method="POST">
-        {% csrf_token %}
-        <button>Buy {{ coffee.name }}</button>
+      {% csrf_token %}
+      <button>Buy {{ coffee.name }}</button>
     </form>
-</li>
-{% endfor %}
+  </li>
+  {% endfor %}
 </ul>
 {% endblock content %}
